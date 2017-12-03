@@ -1,0 +1,6 @@
+{{ $url := .Get "url"}}
+{{ $url := strings.TrimSuffix "?usp=sharing" $url }}
+{{ $url := strings.TrimPrefix "https://drive.google.com/drive/folders" $url }}
+{{ $id := strings.TrimPrefix "/" $url }}
+{{ $height := .Get "height"}}
+<iframe src="https://drive.google.com/embeddedfolderview?id={{$id}}#list" height='{{with .Get "height"}}{{.}}{{else}}{{T "100%"}}{{end}}' width=100%></iframe>

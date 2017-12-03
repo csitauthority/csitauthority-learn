@@ -14,22 +14,26 @@
 		{{if ($.Get "pattern")}}
 			{{if (findRE ($.Get "pattern") .Name)}}
 				<li>
-					<a href="{{ printf "%s/%s%s/%s" $.Site.BaseURL $fileDir ($.Scratch.Get "filesName") .Name }}" >
-						{{.Name}}
-					</a>
-					({{div .Size 1024 }} ko)
+					{{.Name}} <a class="viewLink" href="{{ printf "%s/%s%s/%s" $.Site.BaseURL $fileDir ($.Scratch.Get "filesName") .Name }}" ><i class="fa fa-eye" aria-hidden="true"></i>View</a> <a class="downloadLink" href="{{ printf "%s/%s%s/%s" $.Site.BaseURL $fileDir ($.Scratch.Get "filesName") .Name }}" download><i class="fa fa-download" aria-hidden="true"></i>Download</a>
+					({{div .Size 1024 }} Kb)
 				</li>
 			{{end}}
 		{{else}}
 			<li>
-				<a href="{{ printf "%s/%s%s/%s" $.Site.BaseURL $fileDir ($.Scratch.Get "filesName") .Name }}" >
-					{{.Name}}
-				</a>
-				({{div .Size 1024 }} ko)
+				{{.Name}} <a class="viewLink" href="{{ printf "%s/%s%s/%s" $.Site.BaseURL $fileDir ($.Scratch.Get "filesName") .Name }}" ><i class="fa fa-eye" aria-hidden="true"></i>View</a> <a class="downloadLink" href="{{ printf "%s/%s%s/%s" $.Site.BaseURL $fileDir ($.Scratch.Get "filesName") .Name }}" ><i class="fa fa-download" aria-hidden="true"></i>Download</a>
+				({{div .Size 1024 }} Kb)
 			</li>
 		{{end}}
 	{{end}}
 	<div>
 	{{.Inner}}
 </section>
+<style>
+a.viewLink{
+	color: #8451A1;
+}
+a.downloadLink{
+	color: #139948;
+}
+</style>
 

@@ -1,0 +1,9 @@
+{{ $td1 := .Get "td1"}}
+{{ $td2 := .Get "td2"}}
+<style>
+	table thead th{ background-color: #8451A1; color:#fff; }
+	table tbody tr:nth-child({{$td1}}),
+	table tbody tr:nth-child({{$td2}}){
+		background-color: #eeefff;
+	}
+</style>

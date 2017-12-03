@@ -1,0 +1,35 @@
+<style type="text/css">
+.ghContributors{
+display:flex;
+flex-flow:  wrap;
+align-content: flex-start;
+align-items: top;
+justify-content: center;
+}
+
+.ghContributors > div{
+width: 50% ;
+display: inline-flex;
+margin-bottom: 0px;
+vertical-align: text-top;
+}
+.ghContributors > div label{
+padding-left: 4px ;
+margin-bottom:-10px;
+}
+.ghContributors > div span{
+font-size: 1em;
+padding-left: 4px;
+}
+
+</style>
+<div class="ghContributors">
+  {{ $url := .Get 0 }}
+  {{ range getJSON $url }}
+    <div style="display:block; width:200px;">
+    <img src="{{.avatar_url}}" class="inline" width="200" height="200" style="height: 200px;height: 200px;margin-bottom:.25em; vertical-align:middle; margin: 0 auto; ">
+    <label><a href="{{.html_url}}" style="word-wrap: break-word; max-width: 190px;">@{{.login}}</a></label>
+    <span class="contributions">{{.contributions}} commits</span>
+  </div>
+  {{ end }}
+</div>
