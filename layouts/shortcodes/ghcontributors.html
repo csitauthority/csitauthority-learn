@@ -1,34 +1,84 @@
 <style type="text/css">
-.ghContributors{
+.ghContributors
+{
 display:flex;
 flex-flow:  wrap;
-align-content: flex-start;
-align-items: top;
-justify-content: center;
+align-content: flex-start
 }
-
-.ghContributors > div{
+.ghContributors > div
+{
 width: 50% ;
 display: inline-flex;
-margin-bottom: 0px;
-vertical-align: text-top;
 }
-.ghContributors > div label{
+.ghContributors > div label
+{
 padding-left: 4px ;
-margin-bottom:-10px;
 }
 .ghContributors > div span{
-font-size: 1em;
-padding-left: 4px;
+padding-left: 4px ;
 }
+.ghContributors img.imgStyle{
+vertical-align:middle;
+margin-bottom:.25em;
+}
+/* SMALL THUMBNAILS */
+.ghContributors > div
+  {
+  margin-bottom: 5px;
+  }
+  .ghContributors > div span
+  {
+  font-size: x-small;
+  }
+  .ghContributors img.imgStyle
+  {
+  height: 32px;
+  }
+
+/* BIG THUMBNAILS */
+/*.ghContributors
+  {
+  align-items: top;
+  justify-content: center;	
+  }
+  .ghContributors > div
+  {
+  margin-bottom: 0px;
+  vertical-align: text-top;
+  }
+  .ghContributors > div label
+  {
+  margin-bottom:-10px;
+  }
+  .ghContributors > div span
+  {
+  font-size: 1em;
+  }
+  .ghContributors div.blockStyle
+  {
+  display:block;
+  width:200px;
+  }
+  .ghContributors img.imgStyle
+  {
+  height: 200px;
+  margin: 0 auto;
+  }
+  .ghContributors label a.labelStyle
+  {
+  word-wrap: break-word;
+  max-width: 190px;
+  }*/
 
 </style>
+
 <div class="ghContributors">
   {{ $url := .Get 0 }}
   {{ range getJSON $url }}
-    <div style="display:block; width:200px;">
-    <img src="{{.avatar_url}}" class="inline" width="200" height="200" style="height: 200px;height: 200px;margin-bottom:.25em; vertical-align:middle; margin: 0 auto; ">
-    <label><a href="{{.html_url}}" style="word-wrap: break-word; max-width: 190px;">@{{.login}}</a></label>
+    <div class="blockStyle">
+    <img src="{{.avatar_url}}" class="imgStyle inline SmallerThumbnail" width="32" height="32">
+    <!-- <img src="{{.avatar_url}}" class="inline imgStyle BiggerThumbnail" width="200" height="200"> -->
+    <label><a href="{{.html_url}}" class="labelStyle">@{{.login}}</a></label>
     <span class="contributions">{{.contributions}} commits</span>
   </div>
   {{ end }}
