@@ -1,12 +1,12 @@
 <center>
     <!-- Place this tag where you want the button to render. -->
-    <a class="github-button" href="https://github.com/csitauthority/6thSem" data-icon="octicon-mark-github" aria-label="View this project on Github">View Project</a>
+    <a class="github-button" href="{{ .Site.Params.repoView }}" data-icon="octicon-mark-github" aria-label="View this project on Github">View Project</a>
 
     <!-- Place this tag where you want the button to render. -->
-    <a class="github-button" href="https://github.com/csitauthority/6thSem" data-icon="octicon-star" data-show-count="true" aria-label="Star csitauthority/8thSem on GitHub">Star</a>
+    <a class="github-button" href="{{ .Site.Params.repoStar }}" data-icon="octicon-star" data-show-count="true" aria-label="Star csitauthority/8thSem on GitHub">Star</a>
 
     <!-- Place this tag where you want the button to render. -->
-    <a class="github-button" href="https://github.com/csitauthority/6thSem/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork csitauthority/8thSem on GitHub">Fork</a>
+    <a class="github-button" href="{{ .Site.Params.repoFork }}" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork csitauthority/8thSem on GitHub">Fork</a>
 
     <p>&copy; CSITauthority {{now.Format "2006"}}<br/>Powered by <a href="http://gohugo.io/">Hugo</a> and <a href="http://github.com/">Github</a></p>
 </center>
